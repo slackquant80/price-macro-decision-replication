@@ -62,6 +62,19 @@ def main():
     pl=pd.read_csv(DATA/'T23_RANDOM_TOP4_OBSERVED_PLACEMENT_v1.0.csv')
     pr=pl[(pl.strategy.eq('OWN_ONLY'))&(pl.random_metric.eq('information_ratio_vs_ew11'))].iloc[0]
     check(abs(float(pr.empirical_percentile_random_le_observed)-0.9953)<1e-12,'Price-only IR random Top-4 percentile = 99.53%')
+    # v2.18 Figure 3: 112 paper-native monthly observations, net wealth ratio.
+    macro=h[h.strategy.eq('MACRO_PLUS_OWN')].sort_values('origin_signal_month')
+    own2=h[h.strategy.eq('OWN_ONLY')].sort_values('origin_signal_month')
+    check(list(macro.origin_signal_month)==list(own2.origin_signal_month),'matched Macro+Price and Price-only monthly origins')
+    for x in [macro,own2]:
+        check(np.max(np.abs(x.gross_return-x.net_return-0.001*x.turnover))<1e-12,'10bp one-way turnover-cost ledger')
+    wmacro=np.cumprod(1+macro.net_return.to_numpy())
+    wown=np.cumprod(1+own2.net_return.to_numpy())
+    rv=np.r_[1.,wmacro/wown]
+    ratio_dd=rv/np.maximum.accumulate(rv)-1
+    check(abs(rv[-1]-1.0204483508663122)<1e-11,'Figure 3 relative wealth ending = 1.020448350866')
+    check(abs(ratio_dd.min()+0.2708482781362658)<1e-11,'Figure 3 ratio-level drawdown = -27.0848%, not portfolio MDD')
+    check(int((rv[1:]<1).sum())==72,'Figure 3 below-parity months = 72/112')
     # Publication outputs must be generated. Exact figure bytes can vary across OS/font/renderer
     # stacks even when the underlying data, plotting code, labels, and geometry are unchanged.
     # Therefore public replay is cross-platform by default: tables are compared after newline

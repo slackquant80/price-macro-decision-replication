@@ -12,15 +12,19 @@ The accompanying scientific analysis used 112 monthly out-of-sample allocation d
 
 - Figure 1: conceptual information-flow diagram from deterministic TikZ source;
 - Figure 2: price-based active value relative to the same-universe EW11 benchmark;
-- Figure 3: incremental macro value across the main robustness checks;
-- Figure 4: information-timing and information-set robustness;
-- Figure 5: economic trade-offs relative to SPY/AGG 60/40;
-- Figure 6: calendar-year Macro+Price minus Price-only return differences;
+- Figure 3 (new in v2.18): Macro+Price vs Price-only cumulative relative net wealth (112 monthly observations);
+- Figure 4: incremental macro value across the main robustness checks;
+- Figure 5: information-timing and information-set robustness;
+- Figure 6: economic trade-offs relative to SPY/AGG 60/40;
+- Figure 7: calendar-year Macro+Price minus Price-only return differences;
 - Figure A1: Random Top-4 information-ratio distribution;
 - Table 2: primary one-month-ahead results relative to EW11; and
 - Table 3: primary one-month-ahead comparison with 60/40.
 
 The validation script also independently recomputes headline portfolio statistics and checks the primary, conservative-timing, latest-snapshot, and Random Top-4 anchors used in the paper.
+
+The older frozen figure-file names are intentionally retained for historical v1.1 reproducibility.
+The exact paper-to-file crosswalk and new v1.2 source are documented in `RELEASE_NOTES_v1.2.md`.
 
 ## One-command reproduction
 

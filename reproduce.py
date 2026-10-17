@@ -37,6 +37,7 @@ def main():
     else:
         print('SKIP | xelatex not found; empirical figures/tables will still be validated')
 
+    run([sys.executable,str(ROOT/'src/build_t23_figure_3_incremental_wealth_v0_1.py'),'--output-dir',str(OUT)])
     cmd=[sys.executable,str(ROOT/'src/validate_public.py'),'--output-dir',str(OUT)]
     if args.strict_output_hash: cmd.append('--strict-output-hash')
     run(cmd)
