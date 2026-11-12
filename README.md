@@ -26,6 +26,12 @@ The validation script also independently recomputes headline portfolio statistic
 The older frozen figure-file names are intentionally retained for historical v1.1 reproducibility.
 The exact paper-to-file crosswalk and new v1.2 source are documented in `RELEASE_NOTES_v1.2.md`.
 
+## Revised SSRN Figure 1 v1.2 (optional)
+
+The revised 15-page T23 SSRN paper uses an improved conceptual **Figure 1 v1.2**. Its additive source is [`figure_sources/build_t23_fig01_house_v1_2.py`](figure_sources/build_t23_fig01_house_v1_2.py); see [`FIGURE_1_V12_SYNC_NOTES.md`](FIGURE_1_V12_SYNC_NOTES.md) for the optional ReportLab and local Liberation Serif font requirements.
+
+The standard `python reproduce.py` deliberately retains the historical **v1.1 TikZ** conceptual Figure 1. Scientific figures, data, models, checks and the v1.2 GitHub Release snapshot are unchanged; the additional generator does not create a new scientific result or DOI.
+
 ## One-command reproduction
 
 Python 3.11+ is recommended.
