@@ -23,6 +23,12 @@ The accompanying scientific analysis used 112 monthly out-of-sample allocation d
 
 The validation script also independently recomputes headline portfolio statistics and checks the primary, conservative-timing, latest-snapshot, and Random Top-4 anchors used in the paper.
 
+### Revised T23 Figure 1 v1.2 (optional current-paper vector)
+
+The revised SSRN #7340100 paper uses an updated conceptual Figure 1 v1.2. Its public Python vector source is [`figure_sources/build_t23_fig01_house_v1_2.py`](figure_sources/build_t23_fig01_house_v1_2.py), with precise reproduction instructions in [`FIGURE_1_V12_SYNC_NOTES.md`](FIGURE_1_V12_SYNC_NOTES.md).
+
+The default `python reproduce.py` intentionally preserves the original v1.1 TikZ figure for **historical release reproducibility**; it does not produce revised Figure 1 v1.2. Run the optional ReportLab generator for that latest conceptual diagram. Empirical data, scientific results, other charts and tables are unchanged. Prior GitHub Release assets and Zenodo deposits remain immutable.
+
 The older frozen figure-file names are intentionally retained for historical v1.1 reproducibility.
 The exact paper-to-file crosswalk and new v1.2 source are documented in `RELEASE_NOTES_v1.2.md`.
 
